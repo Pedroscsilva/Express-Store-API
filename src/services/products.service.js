@@ -17,7 +17,6 @@ const findAll = async () => {
 const addProduct = async (productName) => {
   const error = checkProductName(productName);
   if (error.type) return error;
-  // quebrei acima
 
   const newProductId = await productsModel.addProduct({ name: productName });
   const newProduct = await productsModel.findById(newProductId);
