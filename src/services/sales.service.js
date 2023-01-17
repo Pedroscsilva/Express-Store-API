@@ -41,9 +41,27 @@ const deleteSale = async (saleId) => {
   return { type: null, message: null };
 };
 
+const updateSale = async (saleId, salesArray) => {
+  const idError = await doesSaleIdExist(saleId);
+  if (idError.type) return idError;
+
+  const arrayError = await checkSalesArray(salesArray);
+  if (arrayError.type) return arrayError;
+
+  await salesModel.updateSale(saleId, salesArray);
+
+  const returnedObj = {
+    saleId,
+    itemsUpdated: salesArray,
+  };
+
+  return { type: null, message: returnedObj };
+};
+
 module.exports = {
   addSale,
   findAll,
   findById,
   deleteSale,
+  updateSale,
 };

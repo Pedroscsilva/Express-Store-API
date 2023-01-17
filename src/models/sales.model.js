@@ -50,9 +50,35 @@ const deleteSale = async (saleId) => connection.execute(
   [saleId],
 );
 
+const updateSale = async (saleId, salesArray) => {
+  await connection.execute(
+    'DELETE FROM sales_products WHERE sale_id = ?',
+    [saleId],
+  );
+
+  salesArray.forEach(async (e) => {
+    const obj = e;
+    obj.saleId = saleId;
+
+    const columns = Object.keys(snakeize(obj))
+      .map((key) => `${key}`)
+      .join(', ');
+    
+    const placeholders = Object.keys(obj)
+      .map((_key) => '?')
+      .join(', ');
+    
+    await connection.execute(
+      `INSERT INTO sales_products (${columns}) VALUES (${placeholders})`,
+      [...Object.values(obj)],
+    );
+  });
+};
+
 module.exports = {
   addSale,
   findAll,
   findById,
   deleteSale,
+  updateSale,
 };
