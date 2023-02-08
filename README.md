@@ -1,13 +1,33 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Express Store API
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+This was an awesome project to develop. It works with a Model, Service, and Controller (MSC) architeture.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+I've also developed unit tests to the vast majority of the API.
+
+If you want to check it, you can clone this repository.
+
+Provided you have Docker and docker-compose installed on your machine, you may follow the commands below in your terminal to see the API working:
+
+```sh
+$ docker-compose up -d
+$ docker exec -it store_manager bash
+```
+
+It should open the bash version of the newly created container. After that, you can install the project's node_modules and start the API.
+
+```sh
+$ npm install
+$ npm start
+```
+
+If you want to check how the tests are working, you can either go to the tests directory or execute the testing script with:
+
+```sh
+$ npm run test
+```
+
+If you would like any help executing it or if you have any suggestion on how to improve this code, please reach me out!
+
+pedroscsilva2001@gmail.com 
+
++55 24 99243-3741
